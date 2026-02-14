@@ -1,0 +1,9 @@
+{
+  "name": "Ultimate AI Content Empire",
+  "short_name": "ContentEmpire",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f9fafb",
+  "theme_color": "#667eea",
+  "icons": []
+}

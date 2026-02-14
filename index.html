@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#667eea" />
+    <title>Ultimate AI Content Empire</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <h1>🚀 Content Empire</h1>
+        <p class="subtle inverse">Ultimate Hybrid System · Web + PWA + Android</p>
+        <nav id="main-nav">
+          <button data-view="dashboard" class="active">Dashboard</button>
+          <button data-view="accounts">Connected Accounts</button>
+          <button data-view="research">Research Engine</button>
+          <button data-view="studio">AI Content Studio</button>
+          <button data-view="editor">Video Editor</button>
+          <button data-view="blog">Blog & Web Stories</button>
+          <button data-view="scheduler">Scheduler</button>
+          <button data-view="analytics">Analytics</button>
+          <button data-view="monetization">Monetization</button>
+          <button data-view="competitors">Competitors</button>
+          <button data-view="notifications">Notifications</button>
+          <button data-view="assistant">Developer Assistant</button>
+          <button data-view="settings">Settings</button>
+        </nav>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <div>
+            <h2 id="view-title">Command Center</h2>
+            <p class="subtle" id="view-subtitle">Control research → generation → scheduling → publishing → analytics.</p>
+          </div>
+          <div class="row gap-sm wrap">
+            <button id="install-pwa">Install PWA</button>
+            <button id="refresh-all">Refresh Data</button>
+            <button class="primary">+ New Project</button>
+          </div>
+        </header>
+
+        <section data-panel="dashboard" class="panel-block active">
+          <section id="kpis" class="kpi-grid"></section>
+          <section class="panel">
+            <div class="panel-header">
+              <h3>Onboarding Progress</h3><span class="subtle">Complete setup to unlock auto-publishing</span>
+            </div>
+            <div id="onboarding-list" class="list"></div>
+          </section>
+          <section class="panel two-col">
+            <div>
+              <h3>Platform Health</h3>
+              <div id="dashboard-health" class="list"></div>
+            </div>
+            <div>
+              <h3>Upcoming Queue (Next 7 days)</h3>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Date</th><th>Platform</th><th>Content</th><th>Status</th></tr></thead>
+                  <tbody id="upcoming-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section data-panel="accounts" class="panel-block">
+          <section class="panel">
+            <div class="panel-header">
+              <h3>Connected Social Accounts (15 platforms)</h3>
+              <div class="row gap-sm wrap">
+                <select id="status-filter"><option value="all">All</option><option value="connected">Connected</option><option value="offline">Offline</option></select>
+                <button id="disconnect-all">Disconnect All</button>
+                <button id="reconnect-all">Reconnect All</button>
+                <button id="test-connections">Test Connections</button>
+              </div>
+            </div>
+            <div class="row gap-sm wrap toolbar">
+              <input id="account-search" type="search" placeholder="Search platform or account" />
+              <button id="export-json">Export JSON</button>
+              <button id="export-csv">Export CSV</button>
+              <button id="refresh-followers">Refresh Followers</button>
+            </div>
+            <div id="accounts-grid" class="account-grid"></div>
+            <div id="health-list" class="health-list"></div>
+          </section>
+        </section>
+
+        <section data-panel="research" class="panel-block">
+          <section class="panel">
+            <h3>Multi-Source Research Engine</h3>
+            <div class="form-grid four">
+              <input id="niche" placeholder="Category/Niche" />
+              <select id="audience"><option>Global</option><option>USA</option><option>Europe</option><option>Asia</option><option>Custom</option></select>
+              <select id="depth"><option value="20">Quick (20)</option><option value="50">Standard (50)</option><option value="100">Deep (100+)</option></select>
+              <button id="run-research" class="primary">Run Research</button>
+            </div>
+            <div class="checkbox-grid" id="source-picks"></div>
+            <div class="row gap-sm wrap toolbar">
+              <select id="topic-source"><option value="all">All sources</option></select>
+              <button id="sort-score">Sort Viral Score ↓</button>
+              <button id="save-favorites">Save Favorites</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Select</th><th>Topic</th><th>Source</th><th>Viral</th><th>Trend</th><th>Competition</th></tr></thead>
+                <tbody id="topics-body"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+
+        <section data-panel="studio" class="panel-block">
+          <section class="panel">
+            <h3>AI Content Studio</h3>
+            <div class="tabs" id="studio-tabs">
+              <button data-tab="script" class="active">Script</button>
+              <button data-tab="voice">Voice</button>
+              <button data-tab="visuals">Visuals</button>
+              <button data-tab="presenter">AI Presenter</button>
+              <button data-tab="preview">Preview</button>
+            </div>
+            <div data-tab-panel="script" class="studio-panel active">
+              <div class="form-grid three">
+                <input id="script-topic" placeholder="Topic" />
+                <select id="tone"><option>Professional</option><option>Casual</option><option>Enthusiastic</option></select>
+                <button id="generate-script" class="primary">Generate Script</button>
+              </div>
+              <textarea id="script-output" rows="10" placeholder="Generated script"></textarea>
+              <div class="row gap-sm wrap">
+                <span id="script-score" class="pill">Overall: -</span>
+                <span id="seo-score" class="pill">SEO: -</span>
+                <span id="retention-score" class="pill">Retention: -</span>
+              </div>
+            </div>
+            <div data-tab-panel="voice" class="studio-panel">
+              <div class="form-grid four">
+                <select id="voice-provider"><option>ElevenLabs</option><option>Google TTS</option><option>Play.ht</option><option>Coqui</option></select>
+                <select><option>Voice A</option><option>Voice B</option><option>Voice C</option></select>
+                <input type="range" min="0.5" max="1.5" step="0.1" value="1" />
+                <button class="primary">Generate Voice</button>
+              </div>
+            </div>
+            <div data-tab-panel="visuals" class="studio-panel">
+              <div class="form-grid four">
+                <select><option>Pollinations</option><option>HuggingFace SD</option><option>Stability</option><option>Craiyon</option></select>
+                <select><option>Photorealistic</option><option>Artistic</option><option>Cartoon</option></select>
+                <select><option>1080p</option><option>4K</option><option>8K</option></select>
+                <button class="primary">Generate Scenes</button>
+              </div>
+            </div>
+            <div data-tab-panel="presenter" class="studio-panel">
+              <div class="form-grid three">
+                <select><option>SDXL Face + SadTalker</option><option>D-ID Avatar</option></select>
+                <input placeholder="Brand style note" />
+                <button class="primary">Generate Presenter</button>
+              </div>
+            </div>
+            <div data-tab-panel="preview" class="studio-panel">
+              <div class="list-item">Timeline auto-assembly preview with transitions, lower-thirds, and CTA overlays.</div>
+            </div>
+          </section>
+        </section>
+
+        <section data-panel="editor" class="panel-block">
+          <section class="panel">
+            <h3>Smart Video Editor</h3>
+            <div id="editor-list" class="list"></div>
+          </section>
+        </section>
+
+        <section data-panel="blog" class="panel-block">
+          <section class="panel">
+            <h3>Blog & Web Stories Creator</h3>
+            <div class="form-grid two">
+              <button id="convert-blog">Convert Script to Blog</button>
+              <button id="generate-web-story" class="primary">Generate AMP Web Story</button>
+            </div>
+            <textarea id="blog-output" rows="10" placeholder="Blog draft output"></textarea>
+          </section>
+        </section>
+
+        <section data-panel="scheduler" class="panel-block">
+          <section class="panel two-col">
+            <div>
+              <h3>Scheduling Rules</h3>
+              <div id="scheduler-list" class="list"></div>
+            </div>
+            <div>
+              <h3>Queue</h3>
+              <div id="queue-list" class="list"></div>
+            </div>
+          </section>
+          <section class="panel">
+            <h3>30-Day Publishing Calendar</h3>
+            <div id="calendar-grid" class="calendar-grid"></div>
+          </section>
+        </section>
+
+        <section data-panel="analytics" class="panel-block">
+          <section class="panel">
+            <h3>Unified Analytics</h3>
+            <div id="analytics-cards" class="kpi-grid"></div>
+            <div class="bar-chart" id="platform-chart"></div>
+          </section>
+        </section>
+
+        <section data-panel="monetization" class="panel-block">
+          <section class="panel two-col">
+            <div>
+              <h3>Monetization Tracker</h3>
+              <div id="revenue-list" class="list"></div>
+            </div>
+            <div>
+              <h3>API Usage / Cost Signals</h3>
+              <div id="api-usage-list" class="list"></div>
+            </div>
+          </section>
+        </section>
+
+        <section data-panel="competitors" class="panel-block">
+          <section class="panel">
+            <div class="panel-header">
+              <h3>Competitor Intelligence</h3>
+              <div class="row gap-sm wrap"><input id="competitor-input" placeholder="Add competitor handle" /><button id="add-competitor">Add</button></div>
+            </div>
+            <div id="competitor-list" class="list"></div>
+          </section>
+        </section>
+
+        <section data-panel="notifications" class="panel-block">
+          <section class="panel two-col">
+            <div>
+              <h3>Alerts Feed</h3>
+              <div id="notification-list" class="list"></div>
+            </div>
+            <div>
+              <h3>Channels</h3>
+              <div class="checkbox-grid">
+                <label><input type="checkbox" checked /> WhatsApp</label>
+                <label><input type="checkbox" checked /> Email</label>
+                <label><input type="checkbox" /> SMS</label>
+                <label><input type="checkbox" checked /> In-app</label>
+                <label><input type="checkbox" /> Push</label>
+                <label><input type="checkbox" checked /> Discord</label>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section data-panel="assistant" class="panel-block">
+          <section class="panel">
+            <h3>Developer AI Chat Assistant</h3>
+            <div class="row gap-sm wrap toolbar">
+              <input id="assistant-input" placeholder='Try: "Add TikTok support"' />
+              <button id="assistant-send" class="primary">Send</button>
+            </div>
+            <div id="assistant-log" class="list"></div>
+          </section>
+        </section>
+
+        <section data-panel="settings" class="panel-block">
+          <section class="panel">
+            <h3>Settings</h3>
+            <div class="form-grid four">
+              <input id="setting-niche" placeholder="Default niche" />
+              <select id="setting-timezone"><option value="UTC">Timezone: UTC</option><option value="EST">Timezone: EST</option><option value="IST">Timezone: IST</option></select>
+              <select id="setting-theme"><option value="light">Theme: Light</option><option value="dark">Theme: Dark</option></select>
+              <button id="save-settings">Save Preferences</button>
+            </div>
+            <div class="row gap-sm wrap">
+              <button id="export-state">Export Workspace Backup</button>
+              <button id="reset-demo">Reset Demo Data</button>
+            </div>
+            <section class="panel nested">
+              <div class="panel-header">
+                <h4>API Integration Settings</h4>
+                <button id="test-api-health">Test API Health</button>
+              </div>
+              <div id="api-settings-grid" class="list"></div>
+            </section>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
